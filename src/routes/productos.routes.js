@@ -5,7 +5,8 @@ import { methodHTTP as productosController } from "../controllers/productos.cont
 const router = Router();
 
 
-router.get("/", productosController.getProductos)
+router.get("/", productosController.getProductos);
+router.post("/", productosController.postProducto);
 
 export default router;
 
