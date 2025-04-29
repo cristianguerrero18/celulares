@@ -20,5 +20,6 @@ app.use("/api/compras",comprasRoutes)
 app.use("/api/detalle_compras",detalle_comprasRoutes)
 app.use("/api/usuarios",usuariosRoutes)
 
+
 export default app;
 

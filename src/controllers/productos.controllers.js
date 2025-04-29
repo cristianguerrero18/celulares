@@ -44,7 +44,26 @@ const postProducto = async (req, res) => {
     }
 }
 
+const deleteProducto = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const connection = await getConnection()
+    const result = await connection.query("DELETE FROM productos WHERE id_producto = ?", id)
+
+    if (result.affectedRows > 0) {
+      res.json({ message: "Producto eliminado correctamente" })
+    } else {
+      res.status(404).json({ message: "Producto no encontrado" })
+    }
+  } catch (error) {
+    console.error("Error al eliminar producto:", error)
+    res.status(500).json({ message: "Error al eliminar producto" })
+  }
+}
+
 export const methodHTTP = {
-    getProductos,
-    postProducto
+  getProductos,
+  postProducto,
+  deleteProducto
 }

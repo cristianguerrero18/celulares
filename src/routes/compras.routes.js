@@ -8,4 +8,5 @@ const router = Router();
 router.get("/", comprasController.getCompras)
 router.post("/", comprasController.postCompra);
 
+
 export default router;
